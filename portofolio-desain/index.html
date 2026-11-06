@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="id" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Judul & deskripsi diisi otomatis dari config.js; teks di bawah hanya cadangan. -->
+  <title>Portofolio — Graphic Designer</title>
+  <meta name="description" content="Portofolio desain grafis.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portofolio — Graphic Designer">
+  <meta property="og:description" content="Portofolio desain grafis.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F2F1EA">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/InterDisplay-Black.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="assets/img/foto-profil.webp" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="config.js"></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/motion.js" defer></script>
+  <script>document.documentElement.classList.remove("no-js");</script>
+</head>
+<body>
+  <a class="skip" href="#konten">Lewati ke konten</a>
+  <div class="intro" id="intro" aria-hidden="true"><p class="intro__name" id="introName"></p><span class="intro__count" id="introCount">0</span></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <!-- ===================== NAVIGASI ===================== -->
+  <header class="nav" id="nav">
+    <a class="nav__logo" href="#top" aria-label="Kembali ke atas"><span data-text="nama.inisial">NK</span></a>
+    <nav class="nav__links" aria-label="Navigasi utama">
+      <a href="#karya">Karya</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <a class="btn btn--dark nav__cta" href="#kontak">Hubungi saya</a>
+    <button class="nav__menu" id="menuBtn" aria-expanded="false" aria-controls="menuPanel">
+      <span class="sr">Buka menu</span><span class="nav__burger" aria-hidden="true"></span>
+    </button>
+  </header>
+  <div class="menu" id="menuPanel" hidden>
+    <nav aria-label="Menu ponsel">
+      <a href="#karya">Karya</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </div>
+
+  <main id="konten">
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top">
+      <h1 class="hero__name display">
+        <span class="hero__line hero__line--1" data-text="nama.baris1">Nama</span>
+        <span class="hero__line hero__line--2" data-text="nama.baris2">Kamu</span>
+      </h1>
+      <figure class="hero__photo">
+        <img src="assets/img/foto-profil.webp" data-src="fotoProfil" alt="" width="900" height="1125" fetchpriority="high">
+        <figcaption class="sticker" data-text="stikerFoto">Halo!</figcaption>
+      </figure>
+      <div class="hero__bottom">
+        <div class="hero__info">
+          <p class="hero__role" data-text="peran">Graphic Designer</p>
+          <p class="muted" data-text="spesialis"></p>
+          <p class="muted" data-text="lokasi"></p>
+        </div>
+        <svg class="badge" viewBox="0 0 200 200" aria-hidden="true">
+          <defs><path id="lingkar" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"></path></defs>
+          <text><textPath href="#lingkar" textLength="482" lengthAdjust="spacing">GULIR · LIHAT KARYA · GULIR · LIHAT KARYA ·</textPath></text>
+          <path d="M100 78v44M84 106l16 16 16-16" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <a class="status" id="status" href="#kontak">
+          <span class="status__label"><i class="dot" aria-hidden="true"></i><span data-text="status.label"></span></span>
+          <span class="status__detail" data-text="status.detail"></span>
+          <span class="status__cta"><span data-text="status.tombol"></span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee marquee--accent" aria-label="Bidang keahlian">
+      <div class="marquee__track" data-list="marquee"></div>
+    </div>
+
+    <!-- ===================== TENTANG ===================== -->
+    <section class="section about" id="tentang">
+      <p class="eyebrow">(Tentang)</p>
+      <p class="about__statement" data-html="tentang.pernyataan"></p>
+      <div class="about__row">
+        <p class="about__bio" data-text="tentang.bio"></p>
+        <a class="btn btn--line" id="cvBtn" href="#" download hidden><span data-text="tentang.tombolCV">Unduh CV</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12M6 10l6 6 6-6M5 20h14"></path></svg></a>
+      </div>
+    </section>
+
+    <!-- ===================== SOROTAN ===================== -->
+    <section class="section highlights" aria-label="Karya unggulan">
+      <div data-list="sorotan"></div>
+    </section>
+
+    <!-- ===================== DUA KARTU BESAR ===================== -->
+    <section class="section split" aria-label="Bidang karya">
+      <div class="split__grid" data-list="kartuBesar"></div>
+    </section>
+
+    <!-- ===================== KARYA ===================== -->
+    <section class="section works" id="karya">
+      <div class="works__head">
+        <h2 class="display works__title">Karya<br><span class="outline">Pilihan</span></h2>
+        <div class="filters" role="group" aria-label="Filter kategori" data-list="kategori"></div>
+      </div>
+      <div class="works__grid" id="worksGrid" data-list="karya"></div>
+    </section>
+
+    <!-- ===================== LAYANAN ===================== -->
+    <section class="section services" id="layanan">
+      <p class="eyebrow">(Layanan)</p>
+      <h2 class="display services__title">Yang bisa<br>saya bantu</h2>
+      <ol class="services__list" data-list="layanan"></ol>
+    </section>
+
+    <!-- ===================== KLIEN ===================== -->
+    <div class="marquee marquee--clients" aria-label="Klien dan kolaborasi">
+      <div class="marquee__track marquee__track--reverse" data-list="klien"></div>
+    </div>
+
+    <!-- ===================== FEED SOSIAL ===================== -->
+    <section class="section feed">
+      <div class="feed__head">
+        <h2 class="display feed__title">Ikuti<br><span class="outline">Prosesnya</span></h2>
+        <a class="btn btn--line" id="igLink" href="#" target="_blank" rel="noopener"><span data-text="instagram.handle"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a>
+      </div>
+      <div class="feed__grid" data-list="feed"></div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER / KONTAK ===================== -->
+  <footer class="footer" id="kontak">
+    <h2 class="display footer__tagline">
+      <span data-text="footer.baris1"></span><br><span data-text="footer.baris2"></span><br><span class="hl" data-text="footer.baris3"></span>
+    </h2>
+    <div class="footer__contact">
+      <a class="footer__email" id="emailLink" href="#"><span data-text="email"></span></a>
+      <button class="btn btn--accent" id="copyBtn" type="button">Salin email</button>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <p class="footer__label">Navigasi</p>
+        <a href="#karya">Karya</a><a href="#tentang">Tentang</a><a href="#layanan">Layanan</a>
+      </div>
+      <div>
+        <p class="footer__label">Sosial</p>
+        <div data-list="sosial"></div>
+      </div>
+      <div>
+        <p class="footer__label">Lokasi</p>
+        <p data-text="lokasi"></p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span id="tahun"></span> <span data-text="nama.baris1"></span> <span data-text="nama.baris2"></span></p>
+      <a href="#top" class="totop">Kembali ke atas
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"></path></svg></a>
+    </div>
+  </footer>
+
+  <!-- ===================== DETAIL KARYA (pop-up) ===================== -->
+  <dialog class="detail" id="detail" aria-labelledby="detailJudul">
+    <div class="detail__inner">
+      <button class="detail__close" id="detailTutup" type="button" aria-label="Tutup detail">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      <div class="detail__media" id="detailMedia"></div>
+      <div class="detail__text">
+        <p class="eyebrow" id="detailMeta"></p>
+        <h3 class="display detail__title" id="detailJudul"></h3>
+        <p id="detailDesk"></p>
+        <ul class="chips" id="detailTools"></ul>
+        <a class="btn btn--dark" id="detailLink" href="#" target="_blank" rel="noopener" hidden>Lihat proyek lengkap
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg></a>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">Aktifkan JavaScript untuk melihat isi portofolio.</p></noscript>
+</body>
+</html>
