@@ -2,224 +2,377 @@
    EDIT DI SINI — semua teks, foto, link, dan warna website ada di file ini.
    - Teks di antara tanda kutip boleh diganti bebas.
    - Foto: taruh file baru di folder assets/img, lalu ganti path-nya di bawah.
-   - Warna: ganti kode hex di bagian "tema".
+   - Warna: ganti kode hex di bagian "tema" (ada versi terang & gelap).
    Setelah disimpan, cukup refresh browser (atau push ke GitHub → Vercel update otomatis).
    ========================================================================== */
 
 window.SITE = {
   /* ---------- SEO & tampilan saat link dibagikan (WhatsApp, LinkedIn, dll.) ---------- */
   meta: {
-    judul: "Surya Abdi Febrianto — Graphic Designer",
+    judul: "Surya Abdi Febrianto | Graphic & UI/UX Designer",
     deskripsi:
-      "Portofolio desain grafis: brand identity, poster, social media, dan kemasan.",
-    url: "https://nama-kamu.vercel.app", // ganti setelah deploy
+      "Portfolio of Surya Abdi Febrianto, a graphic and UI/UX designer based in Samarinda, Indonesia.",
+    url: "https://suryaafev.vercel.app", // ganti setelah deploy
     gambarBagikan: "assets/img/og-image.jpg", // 1200×630 px
   },
 
   /* ---------- WARNA ----------
+     Dua set warna: "terang" (light mode) dan "gelap" (dark mode).
      latar     : warna dasar halaman
-     tinta     : warna teks utama & latar footer
-     aksen     : warna sorotan (tombol, marquee, kartu status)
-     aksenTeks : warna teks DI ATAS warna aksen (pilih yang kontras)
-     permukaan : warna kartu
-     abu       : teks keterangan kecil                                          */
+     tinta     : warna teks utama
+     aksen     : warna sorotan (tombol, ikon, garis) — WAJIB satu warna hex
+     aksenTeks : warna teks DI ATAS aksen/gradien (pilih yang kontras)
+     permukaan : warna kartu & kotak
+     abu       : teks keterangan kecil
+     gradien   : latar pita berjalan & kartu status (boleh diisi satu warna saja)
+     garisCair : warna garis "liquid" tipis yang bergerak di latar seluruh halaman      */
   tema: {
-    latar: "#F8EFF8",
-    tinta: "#32143D",
-
-    aksen:
-      "linear-gradient(135deg, #E1BEE7 0%, #C58BD0 35%, #9B4DB5 70%, #6A1B9A 100%)",
-    aksenTeks: "#FFFFFF",
-
-    permukaan: "#F0DDF2",
-    abu: "#806B83",
+    awal: "auto", // "auto" = ikut pengaturan HP/laptop pengunjung, atau "terang" / "gelap"
+    terang: {
+      latar: "#F8EFF8",
+      tinta: "#32143D",
+      aksen: "#9B4DB5",
+      aksenTeks: "#FFFFFF",
+      permukaan: "#F0DDF2",
+      abu: "#806B83",
+      gradien: "linear-gradient(135deg, #C58BD0 0%, #9B4DB5 50%, #6A1B9A 100%)",
+      garisCair: "#EBD9EF",
+    },
+    gelap: {
+      latar: "#140A18",
+      tinta: "#F6EAF8",
+      aksen: "#C58BD0",
+      aksenTeks: "#FFFFFF",
+      permukaan: "#221329",
+      abu: "#B39DB8",
+      gradien: "linear-gradient(135deg, #9B4DB5 0%, #6A1B9A 55%, #4A1170 100%)",
+      garisCair: "#2B1734",
+    },
   },
 
   /* ---------- IDENTITAS ---------- */
-  nama: { baris1: "Surya", baris2: "Afev", inisial: "SA" },
-  peran: "Graphic Designer",
-  spesialis: "Brand Identity · Poster · Social Media",
+  nama: {
+    baris1: "Surya",
+    baris2: "Abdi F.",
+    inisial: "SA",
+    logo: "Surya Abdi F.",
+    lengkap: "Surya Abdi Febrianto",
+  },
+  peran: "Graphic & UI/UX Designer",
+  spesialis: "Branding · Social Media · UI Design",
   lokasi: "Samarinda, Indonesia",
-  fotoProfil: "assets/img/foto-profil.webp", // potret 4:5, mis. 900×1125 px
-  stikerFoto: "Hi mpruy!", // label kecil di samping foto
+  fotoProfil: "assets/img/foto-profil.webp", // potret, mis. 900×1200 px
+  stikerFoto: "U can call me Ayrus too!", // label kecil di samping foto
+  deskripsiSingkat:
+    "Informatics student at Mulawarman University designing brands, social visuals, and interfaces that look good and work even better.",
 
   status: {
-    aktif: true, // false = sembunyikan kartu status
-    label: "Open for collabs ✳",
-    detail: "Got a cool idea? Let's make it happen.",
-    tombol: "Let's Talk ↗",
-    link: "#kontak",
+    aktif: false, // false = sembunyikan kartu status
+    label: "Open for collaborations",
+    detail: "Got an idea worth building? Let's bring it to life together.",
+    tombol: "Let's talk",
+    link: "#contact",
   },
 
-  /* ---------- PITA BERJALAN (marquee) ---------- */
+  /* ---------- PITA BERJALAN ---------- */
   marquee: [
     "Brand Identity",
-    "Poster",
     "Social Media",
-    "Packaging",
-    "Editorial",
-    "Ilustrasi",
+    "UI/UX Design",
+    "Poster",
+    "Visual Design",
+    "Illustration",
   ],
 
   /* ---------- TENTANG ----------
      Kata di antara <b> dan </b> akan diberi sorotan warna aksen. */
   tentang: {
     pernyataan:
-      "I turn ideas into <b>meaningful experiences</b>, <b>thoughtful designs</b>, and <b>digital products</b> that make an impact.",
-
-    bio: "I'm an Informatics student at Mulawarman University with a passion for UI/UX design, graphic design, and digital creativity. I enjoy turning ideas into visual experiences, exploring creative solutions, and building digital products that balance aesthetics with functionality. From branding and visual design to interface development, I'm always excited to create something meaningful.",
-
-    cv: "assets/CV-Surya-Abdi-Febrianto.pdf",
-    tombolCV: "Get My CV ↗",
+      "I turn ideas into <b>clear visuals</b>, <b>thoughtful interfaces</b>, and <b>digital products</b> people enjoy using.",
+    bio: "I'm an Informatics student at Mulawarman University who lives somewhere between design and code. I work on branding, social media visuals, and user interfaces — always looking for the sweet spot where things look good and work even better.",
+    cv: "assets/CV-Surya-Abdi-Febrianto.pdf", // tombol otomatis muncul kalau file PDF-nya ada di folder assets
+    tombolCV: "Download CV",
   },
 
-  /* ---------- SOROTAN (karya unggulan ukuran besar) ---------- */
-  sorotan: [
-    // {
-    //   gambar: "assets/img/gallery/sorotan-01.webp",
-    //   judul: "Identitas visual [Nama Brand]",
-    //   keterangan: "Brand Identity — 2025",
-    // },
-    // {
-    //   gambar: "assets/img/gallery/sorotan-02.webp",
-    //   judul: "Kampanye poster [Nama Acara]",
-    //   keterangan: "Poster Series — 2025",
-    // },
-    // {
-    //   gambar: "assets/img/gallery/sorotan-03.webp",
-    //   judul: "Kemasan [Nama Produk]",
-    //   keterangan: "Packaging — 2024",
-    // },
-  ],
-  kutipan: [
-    "Desain yang baik terasa sederhana — prosesnya yang rumit.",
-    "Setiap proyek dimulai dari mendengarkan.",
-  ],
-
-  /* ---------- DUA KARTU BESAR (klik = filter karya) ---------- */
-  kartuBesar: [
-    {
-      baris1: "Branding",
-      baris2: "& Identity",
-      teks: "Logo, sistem visual, dan panduan brand.",
-      filter: "branding",
-    },
-    {
-      baris1: "Print",
-      baris2: "& Digital",
-      teks: "Poster, konten media sosial, dan kemasan.",
-      filter: "poster",
-    },
-  ],
-
-  /* ---------- KATEGORI FILTER (id harus sama dengan "kategori" di karya) ---------- */
+  /* ---------- KATEGORI GALERI (id harus sama dengan "kategori" di galeri) ---------- */
   kategori: [
-    { id: "semua", label: "Semua" },
+    { id: "semua", label: "All" },
     { id: "branding", label: "Branding" },
     { id: "poster", label: "Poster" },
     { id: "sosmed", label: "Social Media" },
-    { id: "kemasan", label: "Kemasan" },
+    { id: "ui", label: "UI Design" },
   ],
 
-  /* ---------- KARYA ----------
-     gambar      : gambar sampul (4:5, mis. 960×1200 px)
-     gambarHover : gambar yang muncul saat kursor di atas kartu (boleh sama)
-     link        : link Behance/Dribbble/Drive (kosongkan jika tidak ada)          */
-  karya: [
+  /* ---------- GALERI (gaya Pinterest, kartu bergaris tepi) ----------
+     gambar   : gambar karya (tinggi/pendek bebas, tersusun rapi otomatis)
+     judul    : nama proyek          klien  : nama klien/brand (huruf pertamanya jadi logo bulat)
+     logo     : (opsional) path logo klien bulat, mis. "assets/img/logo-klien.webp"
+     kategori : harus sama dengan salah satu id di "kategori"      tahun : tahun proyek
+     tools    : aplikasi yang dipakai (muncul sebagai label kecil)
+     dilihat  : (opsional) jumlah dilihat/suka, mis. "2.4K"
+     nilai    : (opsional) angka 0–100 untuk garis bawah kartu (label diatur di "labelBar")
+     deskripsi & link : muncul saat gambar diklik. Kosongkan link jika tidak ada.
+     Mau tambah karya? Salin satu blok { ... }, tempel di bawahnya, lalu ganti isinya. */
+  labelBar: "Client satisfaction",
+  galeri: [
     {
-      judul: "[Nama Proyek 01]",
-      klien: "[Klien]",
+      gambar: "assets/img/gallery/karya-01.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
       kategori: "branding",
       tahun: "2025",
-      gambar: "assets/img/works/karya-01.webp",
-      gambarHover: "assets/img/works/karya-01-b.webp",
-      deskripsi:
-        "Ceritakan singkat: masalah klien, ide utamanya, dan hasil akhirnya.",
       tools: ["Illustrator", "Photoshop"],
+      nilai: 96,
+      dilihat: "2.4K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
       link: "",
     },
     {
-      judul: "[Nama Proyek 02]",
-      klien: "[Klien]",
+      gambar: "assets/img/gallery/karya-02.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
       kategori: "poster",
       tahun: "2025",
-      gambar: "assets/img/works/karya-02.webp",
-      gambarHover: "assets/img/works/karya-02-b.webp",
+      tools: ["Photoshop", "Illustrator"],
+      nilai: 88,
+      dilihat: "1.8K",
       deskripsi:
-        "Ceritakan singkat: masalah klien, ide utamanya, dan hasil akhirnya.",
-      tools: ["Illustrator", "InDesign"],
+        "One or two sentences about the brief, the idea, and the result.",
       link: "",
     },
     {
-      judul: "[Nama Proyek 03]",
-      klien: "[Klien]",
+      gambar: "assets/img/gallery/karya-03.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
       kategori: "sosmed",
       tahun: "2025",
-      gambar: "assets/img/works/karya-03.webp",
-      gambarHover: "assets/img/works/karya-03-b.webp",
+      tools: ["Figma", "Canva"],
+      nilai: 92,
+      dilihat: "5.1K",
       deskripsi:
-        "Ceritakan singkat: masalah klien, ide utamanya, dan hasil akhirnya.",
-      tools: ["Figma", "Photoshop"],
+        "One or two sentences about the brief, the idea, and the result.",
       link: "",
     },
     {
-      judul: "[Nama Proyek 04]",
-      klien: "[Klien]",
-      kategori: "kemasan",
-      tahun: "2024",
-      gambar: "assets/img/works/karya-04.webp",
-      gambarHover: "assets/img/works/karya-04-b.webp",
+      gambar: "assets/img/gallery/karya-04.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "ui",
+      tahun: "2025",
+      tools: ["Figma"],
+      nilai: 100,
+      dilihat: "3.2K",
       deskripsi:
-        "Ceritakan singkat: masalah klien, ide utamanya, dan hasil akhirnya.",
-      tools: ["Illustrator", "Dimension"],
+        "One or two sentences about the brief, the idea, and the result.",
       link: "",
     },
     {
-      judul: "[Nama Proyek 05]",
-      klien: "[Klien]",
+      gambar: "assets/img/gallery/karya-05.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "branding",
+      tahun: "2025",
+      tools: ["Illustrator", "Photoshop"],
+      nilai: 90,
+      dilihat: "1.1K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-06.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "poster",
+      tahun: "2025",
+      tools: ["Photoshop", "Illustrator"],
+      nilai: 95,
+      dilihat: "2.9K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-07.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "sosmed",
+      tahun: "2025",
+      tools: ["Figma", "Canva"],
+      nilai: 85,
+      dilihat: "7.6K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-08.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "ui",
+      tahun: "2025",
+      tools: ["Figma"],
+      nilai: 98,
+      dilihat: "4.3K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-09.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
       kategori: "branding",
       tahun: "2024",
-      gambar: "assets/img/works/karya-05.webp",
-      gambarHover: "assets/img/works/karya-05-b.webp",
+      tools: ["Illustrator", "Photoshop"],
+      nilai: 93,
+      dilihat: "1.5K",
       deskripsi:
-        "Ceritakan singkat: masalah klien, ide utamanya, dan hasil akhirnya.",
-      tools: ["Illustrator"],
+        "One or two sentences about the brief, the idea, and the result.",
       link: "",
     },
     {
-      judul: "[Nama Proyek 06]",
-      klien: "[Klien]",
+      gambar: "assets/img/gallery/karya-10.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
       kategori: "poster",
       tahun: "2024",
-      gambar: "assets/img/works/karya-06.webp",
-      gambarHover: "assets/img/works/karya-06-b.webp",
+      tools: ["Photoshop", "Illustrator"],
+      nilai: 89,
+      dilihat: "2.2K",
       deskripsi:
-        "Ceritakan singkat: masalah klien, ide utamanya, dan hasil akhirnya.",
-      tools: ["Photoshop"],
+        "One or two sentences about the brief, the idea, and the result.",
       link: "",
     },
     {
-      judul: "[Nama Proyek 07]",
-      klien: "[Klien]",
+      gambar: "assets/img/gallery/karya-11.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "sosmed",
+      tahun: "2024",
+      tools: ["Figma", "Canva"],
+      nilai: 97,
+      dilihat: "6.8K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-12.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "ui",
+      tahun: "2024",
+      tools: ["Figma"],
+      nilai: 91,
+      dilihat: "3.7K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-13.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "branding",
+      tahun: "2024",
+      tools: ["Illustrator", "Photoshop"],
+      nilai: 94,
+      dilihat: "1.9K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-14.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "poster",
+      tahun: "2024",
+      tools: ["Photoshop", "Illustrator"],
+      nilai: 87,
+      dilihat: "2.6K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-15.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "sosmed",
+      tahun: "2024",
+      tools: ["Figma", "Canva"],
+      nilai: 99,
+      dilihat: "4.9K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-16.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "ui",
+      tahun: "2024",
+      tools: ["Figma"],
+      nilai: 90,
+      dilihat: "3.1K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-17.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "branding",
+      tahun: "2023",
+      tools: ["Illustrator", "Photoshop"],
+      nilai: 92,
+      dilihat: "1.3K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-18.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "poster",
+      tahun: "2023",
+      tools: ["Photoshop", "Illustrator"],
+      nilai: 96,
+      dilihat: "2.0K",
+      deskripsi:
+        "One or two sentences about the brief, the idea, and the result.",
+      link: "",
+    },
+    {
+      gambar: "assets/img/gallery/karya-19.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
       kategori: "sosmed",
       tahun: "2023",
-      gambar: "assets/img/works/karya-07.webp",
-      gambarHover: "assets/img/works/karya-07-b.webp",
+      tools: ["Figma", "Canva"],
+      nilai: 88,
+      dilihat: "5.5K",
       deskripsi:
-        "Ceritakan singkat: masalah klien, ide utamanya, dan hasil akhirnya.",
-      tools: ["Canva", "Photoshop"],
+        "One or two sentences about the brief, the idea, and the result.",
       link: "",
     },
     {
-      judul: "[Nama Proyek 08]",
-      klien: "[Klien]",
-      kategori: "kemasan",
+      gambar: "assets/img/gallery/karya-20.webp",
+      judul: "[Project title]",
+      klien: "[Client]",
+      kategori: "ui",
       tahun: "2023",
-      gambar: "assets/img/works/karya-08.webp",
-      gambarHover: "assets/img/works/karya-08-b.webp",
+      tools: ["Figma"],
+      nilai: 95,
+      dilihat: "2.8K",
       deskripsi:
-        "Ceritakan singkat: masalah klien, ide utamanya, dan hasil akhirnya.",
-      tools: ["Illustrator", "Blender"],
+        "One or two sentences about the brief, the idea, and the result.",
       link: "",
     },
   ],
@@ -228,89 +381,81 @@ window.SITE = {
   layanan: [
     {
       judul: "Brand Identity",
-      teks: "Logo, palet warna, tipografi, dan brand guideline yang siap dipakai.",
-      tag: ["Logo", "Guideline"],
+      teks: "Logos, color palettes, and type systems that give a brand a voice people remember.",
     },
     {
-      judul: "Poster & Publikasi",
-      teks: "Poster acara, flyer, banner, dan materi cetak lainnya.",
-      tag: ["Print", "Event"],
+      judul: "Social Media Design",
+      teks: "Feed and story templates that stay consistent, on-brand, and scroll-stopping.",
     },
     {
-      judul: "Konten Media Sosial",
-      teks: "Template feed dan story yang konsisten dengan brand.",
-      tag: ["Instagram", "TikTok"],
+      judul: "UI/UX Design",
+      teks: "Clean, intuitive interfaces for websites and apps — from wireframe to prototype.",
     },
     {
-      judul: "Desain Kemasan",
-      teks: "Label dan kemasan produk yang menonjol di rak.",
-      tag: ["Packaging", "Mockup"],
+      judul: "Poster & Print",
+      teks: "Event posters, flyers, and banners designed to grab attention at first glance.",
     },
   ],
 
-  /* ---------- KLIEN / KOLABORASI (teks; boleh diganti nama asli) ---------- */
-  klien: [
-    "[Klien 1]",
-    "[Klien 2]",
-    "[Klien 3]",
-    "[Klien 4]",
-    "[Klien 5]",
-    "[Klien 6]",
-  ],
-
-  /* ---------- MEDIA SOSIAL & KONTAK (kosongkan url untuk menyembunyikan) ---------- */
+  /* ---------- KONTAK & MEDIA SOSIAL ----------
+     Ikon dipilih otomatis dari "nama": Instagram, LinkedIn, TikTok, YouTube, GitHub.
+     Kosongkan url ("") untuk menyembunyikan salah satunya.                            */
   email: "suryaafev@gmail.com",
   sosial: [
-    { nama: "Instagram", url: "https://instagram.com/" },
-    // { nama: "Behance", url: "https://behance.net/" },
-    // { nama: "Dribbble", url: "" },
-    { nama: "LinkedIn", url: "https://linkedin.com/" },
-  ],
-  instagram: { handle: "@suryaafev", url: "https://instagram.com/suryaafev" },
-  feed: [
-    "assets/img/social/post-01.webp",
-    "assets/img/social/post-02.webp",
-    "assets/img/social/post-03.webp",
-    "assets/img/social/post-04.webp",
-    "assets/img/social/post-05.webp",
-    "assets/img/social/post-06.webp",
+    { nama: "Instagram", url: "https://instagram.com/suryaafev" },
+    { nama: "LinkedIn", url: "https://linkedin.com/in/" },
+    { nama: "TikTok", url: "https://tiktok.com/@" },
+    { nama: "YouTube", url: "https://youtube.com/@" },
+    { nama: "GitHub", url: "https://github.com/" },
   ],
 
   /* ---------- ANIMASI (true = aktif, false = mati) ---------- */
   animasi: {
-    intro: true, // layar pembuka warna aksen saat pertama dibuka (sekali per sesi)
-    teks: true, // judul muncul huruf demi huruf
-    parallax: true, // nama, foto, dan gambar bergerak saat digulir
-    kursor: true, // kursor bulat khusus (laptop/PC saja)
-    magnet: true, // tombol sedikit "tertarik" ke kursor
-    miring: true, // kartu karya miring mengikuti kursor
+    latarCair: true, // garis "liquid" tipis yang bergerak di latar seluruh halaman (ikut jari/kursor)
+    hurufNama: true, // huruf nama muncul satu per satu & melompat saat disentuh
+    gerakFoto: true, // foto melayang & sedikit bergeser mengikuti jari/kursor/gulir
+    teksMuncul: true, // teks About & Contact dibuka oleh blok warna saat digulir + efek kilau
   },
 
   /* ---------- FOOTER ---------- */
-  footer: { baris1: "Mari bikin", baris2: "sesuatu yang", baris3: "diingat." },
+  footer: { baris1: "Let's create", baris2: "something", baris3: "memorable." },
 };
 
-/* Lewati layar pembuka bila dimatikan / sudah dilihat di sesi ini (jangan diubah). */
-(function (a) {
-  var lewati = !a || a.intro === false;
-  try {
-    lewati = lewati || sessionStorage.getItem("introDilihat") === "1";
-  } catch (e) {}
-  if (
-    window.matchMedia &&
-    matchMedia("(prefers-reduced-motion: reduce)").matches
-  )
-    lewati = true;
-  if (lewati) document.documentElement.classList.add("intro-off");
-})(window.SITE.animasi);
-
-/* Terapkan warna sebelum halaman tampil (jangan diubah). */
+/* Terapkan warna & mode terang/gelap sebelum halaman tampil (jangan diubah). */
 (function (t) {
-  var r = document.documentElement.style;
-  r.setProperty("--latar", t.latar);
-  r.setProperty("--tinta", t.tinta);
-  r.setProperty("--aksen", t.aksen);
-  r.setProperty("--aksen-teks", t.aksenTeks);
-  r.setProperty("--permukaan", t.permukaan);
-  r.setProperty("--abu", t.abu);
+  var keys = {
+    latar: "--latar",
+    tinta: "--tinta",
+    aksen: "--aksen",
+    aksenTeks: "--aksen-teks",
+    permukaan: "--permukaan",
+    abu: "--abu",
+    gradien: "--gradien",
+    garisCair: "--garis-cair",
+  };
+  function block(sel, set) {
+    var css = sel + "{";
+    for (var k in keys) if (set && set[k]) css += keys[k] + ":" + set[k] + ";";
+    return css + "}";
+  }
+  var s = document.createElement("style");
+  s.textContent =
+    block(":root,[data-theme=light]", t.terang) +
+    block("[data-theme=dark]", t.gelap);
+  document.head.appendChild(s);
+
+  var mode = null;
+  try {
+    mode = localStorage.getItem("tema");
+  } catch (e) {}
+  if (mode !== "light" && mode !== "dark") {
+    if (t.awal === "terang") mode = "light";
+    else if (t.awal === "gelap") mode = "dark";
+    else
+      mode =
+        window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+  }
+  document.documentElement.setAttribute("data-theme", mode);
 })(window.SITE.tema);
